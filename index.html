@@ -26,7 +26,10 @@
     <option id="tsgt">Technical Seargant (TSgt)</option>
     <option id="msgt">Master Seargant (MSgt)</option>
     <option id="smsgt">Senior Master Seargant (SMSgt)</option>
-    <option id="cmsgt">Cheif Master Seargant (CMSgt)</option>
+    <option id="cmsgt">Chief Master Seargant (CMSgt)</option>
+    <option id="2lt">2nd Lieutenant (2nd Lt.)</option>
+    <option id="1lt">1st Lieutenant (1st Lt.)</option>
+    <option id="capt">Captain (Capt.)</option>
   </select>
   <br>
   <br>
@@ -58,7 +61,7 @@
   </div>
 
   <script>
-    // CAP Block Generator by Elias V., C/AB
+    // CAP Block Generator by Elias V., C/Amn
     // No rights reserved 2024
 
     var name = "";
@@ -66,7 +69,9 @@
     var senior = document.getElementById("senior");
     
     // Ranks include all of phase 1 and 2
-    // I'll add Phase 2 and 4 later
+    // Update 5/22: added phase 3 ranks
+    // I'll add Phase 4 later
+    // Phases: learn, lead, command, executive
     // 0_UnAbbr; 1_Abbr
     const ranks = [
     ["Airman Basic","AB"],
@@ -77,7 +82,10 @@
     ["Technical Seargant", "TSgt."],
     ["Master Seargant", "MSgt."],
     ["Senior Master Seargant", "SMSgt."],
-    ["Cheif Master Seargant", "CMSgt."]
+    ["Chief Master Seargant", "CMSgt."],
+    ["2nd Lieutenant", "2nd Lt."],
+    ["1st Lieutenant", "1st Lt."],
+    ["Captain", "Capt."]
   ]
 
   function generate() {
