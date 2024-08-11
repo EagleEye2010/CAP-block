@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Civil Air Patrol Block Generator (Emails)">
   <title>CAP Block Generator</title>
-  <style>*{font-family:Arial, Helvetica, sans-serif;}#result{border-radius: 2%;border:2px dotted black;}.result-text{font:12px arial bold;font-weight:bold;margin-top:0px;}</style>
+  <style>*{font-family:Arial, Helvetica, sans-serif;}#result{border-radius: 2%;border:2px dotted black;}.result-text{font:12px arial bold;font-weight:bold;margin-top:5px;line-height:0px;}</style>
 </head>
 <body>
   <h4>Name</h4>
@@ -30,6 +31,9 @@
     <option id="2lt">2nd Lieutenant (2nd Lt.)</option>
     <option id="1lt">1st Lieutenant (1st Lt.)</option>
     <option id="capt">Captain (Capt.)</option>
+    <option id="maj">Major (Maj.)</option>
+    <option id="ltcol">Lieutenant Colonel</option>
+    <option id="col">Colonel</option>
   </select>
   <br>
   <br>
@@ -48,11 +52,12 @@
   <h4>Result (Copy and paste!)</h4>
   <div id="result" style="width:300px;">
     <p class="result-text" style="color:darkblue;text-align: left;" id="name_result"><b>James Smith</b></p>
-    <p style="color:rgb(181, 181, 181);font:12px Arial;margin-left: 3%;" id="duty"></p>
-    <p class="result-text" style="color:rgb(154, 154, 154);text-align: left;"><b>Civil Air Patrol, U.S. Air Force Auxiliary</b></p>
+    <p class="result-text" style="color:#989898;" id="duty"></p>
+    <p class="result-text" style="color:#868686;text-align: left;"><b>Civil Air Patrol, U.S. Air Force Auxiliary</b></p>
     <a class="result-text" style="color:darkblue" href="gocivilairpatrol.com"><b>GoCivilAirPatrol.com</b></a>
     <br>
-    <img style="margin-left: 3%" src="https://www.gocivilairpatrol.com/media/cms/CAPEmailLogoNew_0F67A836DA869.png">
+    <p class="result-text" style="color:#575757;font-family: Arial, Helvetica, sans-serif;" id="phone-res"></p>
+    <img src="https://www.gocivilairpatrol.com/media/cms/CAPEmailLogoNew_0F67A836DA869.png">
     <br>
     <div style="">
       <p style="font-family: Arial, Helvetica, sans-serif; font-size:12px;margin-left:3%;color:rgb(154, 154, 154);"><i>Volunteers serving America's communities, saving lives, and shaping futures.</i></p>
@@ -61,7 +66,7 @@
   </div>
 
   <script>
-    // CAP Block Generator by Elias V., C/Amn
+    // CAP Block Generator by C/SrA Elias V.
     // No rights reserved 2024
 
     var name = "";
@@ -69,8 +74,8 @@
     var senior = document.getElementById("senior");
     
     // Ranks include all of phase 1 and 2
-    // Update 5/22: added phase 3 ranks
-    // I'll add Phase 4 later
+    // Update 5/22/2024: added phase 3 ranks
+    // Update 8/11/2024: added phase 4 ranks, would be surprised if anyone actually uses this program
     // Phases: learn, lead, command, executive
     // 0_UnAbbr; 1_Abbr
     const ranks = [
@@ -85,7 +90,10 @@
     ["Chief Master Seargant", "CMSgt."],
     ["2nd Lieutenant", "2nd Lt."],
     ["1st Lieutenant", "1st Lt."],
-    ["Captain", "Capt."]
+    ["Captain", "Capt."],
+    ["Major", "Maj."],
+    ["Lieutenant Colonel", "Lt. Col."],
+    ["Colonel", "Col."]
   ]
 
   function generate() {
@@ -99,6 +107,7 @@
     // Display Results
     document.getElementById("name_result").innerHTML = "<b>" + cs + ranks[rank.selectedIndex][abbr?1:0] + ' ' + document.getElementById("name").value + "</b>";
     document.getElementById("duty").innerHTML = "<b>" + duty + "</b>";
+    document.getElementById('phone-res').textContent = document.getElementById('phone').value;
   }
   </script>
 </body>
